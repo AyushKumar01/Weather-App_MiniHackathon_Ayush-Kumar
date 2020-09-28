@@ -1,0 +1,20 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'AvenirNext LT Pro';
+    font-weight: normal;
+}
+
+*,
+*::before,
+*::after
+{
+    box-sizing: inherit;  
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
