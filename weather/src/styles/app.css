@@ -1,4 +1,32 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: 'AvenirNext LT Pro';
+  font-weight: normal;
+}
+
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
 h1 {
   color: red;
+}
+
+body {
+  background-image: url(../assets/images/mobile.jpg);
+  background-size: cover;
+  background-position: center;
 }
 /*# sourceMappingURL=app.css.map */
