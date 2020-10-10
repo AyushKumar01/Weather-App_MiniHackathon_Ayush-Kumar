@@ -1,9 +1,11 @@
-import React from "react";
+import React, { Component } from 'react'
 import "./styles/app.css";
+// import axios from "axios";
 
-function App() {
-  return (
-    <div className="background">
+class App extends Component {
+  render() {
+    return (
+      <div className="background">
         <div className="header">
             <div className="header__left">
                 <div className="header__left-description">Few cloudy</div>
@@ -30,7 +32,7 @@ function App() {
           <div id="weather_div"></div>
         </div>
     </div>
-  );
+    )
+  }
 }
-
 export default App;
