@@ -1,16 +1,75 @@
 import React, { Component } from 'react'
 import "./styles/app.css";
-// import axios from "axios";
+import { SEARCH_URL } from './constant';
+import { API_KEY } from './constant';
+import axios from "axios";
 
 class App extends Component {
+  state = {
+    weatherData: {
+      name: "",
+      main: {} 
+    }
+  }
+  
+  componentDidMount(){
+    this.getWeatherData();
+  }
+
+  getWeatherData = () => {
+    axios
+      .get(`${SEARCH_URL}${API_KEY}`)
+      .then((response) =>
+        this.setState({
+          weatherData: response.data
+        })
+      );
+      console.log(this.weatherData)
+      // .catch((error) => {
+      //   console.log(error)
+      // });
+  }
+  // function drawWeather(d) {
+  //   var celcius = Math.round(parseFloat(d.main.temp)-273.15);
+  //   //var fahrenheit = Math.round(((parseFloat(d.main.temp)-273.15)*1.8)+32);
+  //   var description = d.weather[0].description; 
+    
+  //   document.querySelector('.header__right-description').innerHTML = description;
+  //   document.getElementById('temp').innerHTML = celcius + '&deg;';
+  //   document.getElementById('location').innerHTML = d.name;
+    
+  //   if( description.indexOf('rain') > 0 ) {
+  //     document.body.className = 'rainy';
+  //   } else if( description.indexOf('cloud') > 0 ) {
+  //     document.body.className = 'cloudy';
+  //   } else if( description.indexOf('sunny') > 0 ) {
+  //     document.body.className = 'sunny';
+  //   } else {
+  //     document.body.className = 'clear';
+  //   }
+  // }
+  
   render() {
+    const { name, main } = this.state.weatherData;
+    // let temperature = 0;
+    // if(main && main.temp){
+    //   temperature = main.temp;
+    // }
+    let temperature = main.temp;
+    // if(this.state.weatherData){
+    //   temperature = this.state.weatherData.main.temp;
+    // }
+    
+    // const { temp } = this.state.weatherData.main;
+    // let celsius = Math.round(parseFloat(temp)-273.15);
+    console.log(temperature);
     return (
       <div className="background">
         <div className="header">
             <div className="header__left">
                 <div className="header__left-description">Few cloudy</div>
-                <h1 className="header__left-temp" id="temp">17*C</h1>
-                <div className="header__left-location" id="location">Vancouver</div>
+                <h1 className="header__left-temp" id="temp">gg</h1>
+                <div className="header__left-location" id="location">{name}</div>
             </div>
             <div className="header__box-wish">
                 <p id="wishPara">good evening</p>

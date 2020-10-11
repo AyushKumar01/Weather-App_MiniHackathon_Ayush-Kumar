@@ -2,4 +2,4 @@
 // It's a free website for one point
 // https://api.openweathermap.org
 export const API_KEY = "Your_Key";
-export const URL = "Your_Url"
+export const SEARCH_URL = "Your_Url"
