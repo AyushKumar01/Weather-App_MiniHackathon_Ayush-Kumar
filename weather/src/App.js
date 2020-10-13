@@ -8,7 +8,7 @@ class App extends Component {
   state = {
     weatherData: {
       name: "",
-      main: {} 
+      main: {},
     }
   }
   
@@ -50,25 +50,24 @@ class App extends Component {
   // }
   
   render() {
-    const { name, main } = this.state.weatherData;
-    // let temperature = 0;
-    // if(main && main.temp){
-    //   temperature = main.temp;
-    // }
+    const { name, main, weather } = this.state.weatherData;
     let temperature = main.temp;
+    let celsius = Math.round(parseFloat(temperature)-273.15);
+    let status = " ";
+    if (weather && weather[0].description){
+      status = weather[0].description;
+    }
     // if(this.state.weatherData){
     //   temperature = this.state.weatherData.main.temp;
     // }
     
     // const { temp } = this.state.weatherData.main;
-    // let celsius = Math.round(parseFloat(temp)-273.15);
-    console.log(temperature);
     return (
       <div className="background">
         <div className="header">
             <div className="header__left">
-                <div className="header__left-description">Few cloudy</div>
-                <h1 className="header__left-temp" id="temp">gg</h1>
+                <div className="header__left-description">{status}</div>
+                <h1 className="header__left-temp" id="temp">{celsius}&deg;</h1>
                 <div className="header__left-location" id="location">{name}</div>
             </div>
             <div className="header__box-wish">
