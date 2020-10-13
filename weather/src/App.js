@@ -3,12 +3,14 @@ import "./styles/app.css";
 import { SEARCH_URL } from './constant';
 import { API_KEY } from './constant';
 import axios from "axios";
+const date = require('date-and-time');
 
 class App extends Component {
   state = {
     weatherData: {
       name: "",
       main: {},
+      weather: [{}]
     }
   }
   
@@ -53,15 +55,19 @@ class App extends Component {
     const { name, main, weather } = this.state.weatherData;
     let temperature = main.temp;
     let celsius = Math.round(parseFloat(temperature)-273.15);
-    let status = " ";
-    if (weather && weather[0].description){
-      status = weather[0].description;
-    }
-    // if(this.state.weatherData){
-    //   temperature = this.state.weatherData.main.temp;
+    let status = weather[0].description;
+    let now = new Date();
+    let currentDate =  date.format(now, 'YYYY/MM/DD'); 
+    // function trueTIME() {
+    //   let know = new Date();
+    //   let currentTime =  date.format(know, 'HH:mm:ss'); 
+    //   exactTime 
+    // } 
+    // window.onload = function() {
+    //   trueTIME();
     // }
-    
-    // const { temp } = this.state.weatherData.main;
+    let know = new Date();
+    let currentTime =  date.format(know, 'HH:mm:ss'); 
     return (
       <div className="background">
         <div className="header">
@@ -74,8 +80,8 @@ class App extends Component {
                 <p id="wishPara">good evening</p>
             </div>
             <div className="header__box">
-                <p className="header__box-date">10/06/2020</p>
-                <p className="header__box-time">18:39:47</p>
+                <p className="header__box-date">{currentDate}</p>
+                <p className="header__box-time">{currentTime}</p>
             </div>
         </div>
         <div className="bottom">        
