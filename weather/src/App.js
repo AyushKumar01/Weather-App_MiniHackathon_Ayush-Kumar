@@ -29,8 +29,6 @@ class App extends Component {
   }
 
   tick() {
-    // let know = new Date();
-  //     let result = date.format(know, 'HH:mm:ss');
     this.setState({
       currTime: new Date().toLocaleTimeString()
     });
@@ -47,6 +45,21 @@ class App extends Component {
         console.log(error)
       });
   }
+  getWish = () => {
+    let today = new Date();
+    let h = today.getHours();
+    let wish = "";
+    if (h < 12) {
+      wish = 'Good morning';
+    } else if (h < 18) {
+      wish = 'Good afternoon';
+    } else if (h < 20) {
+      wish = 'Good evening';
+    } else {
+      wish = 'Good night';
+    } 
+    return wish;
+  }
   render() {
     const { name, main, weather } = this.state.weatherData;
     let temperature = main.temp;
@@ -54,7 +67,7 @@ class App extends Component {
     let status = weather[0].description;
     let now = new Date();
     let currentDate =  date.format(now, 'MM/DD/YYYY');
-    // let greet = this.getWish()
+    let greet = this.getWish()
     return (
       <div className="background">
         <div className="header">
@@ -64,12 +77,12 @@ class App extends Component {
                 <div className="header__left-location" id="location">{name}</div>
             </div>
             <div className="header__box-wish">
-                <p id="wishPara">good night</p>
+                <p id="wishPara">{greet}</p>
             </div>
-            <div className="header__box">
+            {/* <div className="header__box"> */}
                 <p className="header__box-date">{currentDate}</p>
                 <p className="header__box-time">{this.state.currTime}</p>
-            </div>
+            {/* </div> */}
         </div>
         <div className="bottom">        
           <div className="bottom__leftContainer">
