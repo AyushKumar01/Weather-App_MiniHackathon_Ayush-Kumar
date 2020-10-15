@@ -80,8 +80,8 @@ class App extends Component {
                 <p id="wishPara">{greet}</p>
             </div>
             {/* <div className="header__box"> */}
-                <p className="header__box-date">{currentDate}</p>
                 <p className="header__box-time">{this.state.currTime}</p>
+                <p className="header__box-date">{currentDate}</p>
             {/* </div> */}
         </div>
         <div className="bottom">        
