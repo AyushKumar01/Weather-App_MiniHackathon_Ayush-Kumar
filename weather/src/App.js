@@ -10,12 +10,30 @@ class App extends Component {
     weatherData: {
       name: "",
       main: {},
-      weather: [{}]
+      weather: [{}],
+      currTime: "",
+      wish: ""
     }
   }
   
   componentDidMount(){
     this.getWeatherData();
+    this.intervalID = setInterval(
+      () => this.tick(),
+      1000
+    );
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.intervalID);
+  }
+
+  tick() {
+    // let know = new Date();
+  //     let result = date.format(know, 'HH:mm:ss');
+    this.setState({
+      currTime: new Date().toLocaleTimeString()
+    });
   }
 
   getWeatherData = () => {
@@ -25,49 +43,18 @@ class App extends Component {
         this.setState({
           weatherData: response.data
         })
-      );
-      console.log(this.weatherData)
-      // .catch((error) => {
-      //   console.log(error)
-      // });
+      ).catch((error) => {
+        console.log(error)
+      });
   }
-  // function drawWeather(d) {
-  //   var celcius = Math.round(parseFloat(d.main.temp)-273.15);
-  //   //var fahrenheit = Math.round(((parseFloat(d.main.temp)-273.15)*1.8)+32);
-  //   var description = d.weather[0].description; 
-    
-  //   document.querySelector('.header__right-description').innerHTML = description;
-  //   document.getElementById('temp').innerHTML = celcius + '&deg;';
-  //   document.getElementById('location').innerHTML = d.name;
-    
-  //   if( description.indexOf('rain') > 0 ) {
-  //     document.body.className = 'rainy';
-  //   } else if( description.indexOf('cloud') > 0 ) {
-  //     document.body.className = 'cloudy';
-  //   } else if( description.indexOf('sunny') > 0 ) {
-  //     document.body.className = 'sunny';
-  //   } else {
-  //     document.body.className = 'clear';
-  //   }
-  // }
-  
   render() {
     const { name, main, weather } = this.state.weatherData;
     let temperature = main.temp;
     let celsius = Math.round(parseFloat(temperature)-273.15);
     let status = weather[0].description;
     let now = new Date();
-    let currentDate =  date.format(now, 'YYYY/MM/DD'); 
-    // function trueTIME() {
-    //   let know = new Date();
-    //   let currentTime =  date.format(know, 'HH:mm:ss'); 
-    //   exactTime 
-    // } 
-    // window.onload = function() {
-    //   trueTIME();
-    // }
-    let know = new Date();
-    let currentTime =  date.format(know, 'HH:mm:ss'); 
+    let currentDate =  date.format(now, 'MM/DD/YYYY');
+    // let greet = this.getWish()
     return (
       <div className="background">
         <div className="header">
@@ -77,11 +64,11 @@ class App extends Component {
                 <div className="header__left-location" id="location">{name}</div>
             </div>
             <div className="header__box-wish">
-                <p id="wishPara">good evening</p>
+                <p id="wishPara">good night</p>
             </div>
             <div className="header__box">
                 <p className="header__box-date">{currentDate}</p>
-                <p className="header__box-time">{currentTime}</p>
+                <p className="header__box-time">{this.state.currTime}</p>
             </div>
         </div>
         <div className="bottom">        
