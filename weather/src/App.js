@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import "./styles/app.css";
 import { SEARCH_URL } from './constant';
+import { URL } from './constant';
 import { API_KEY } from './constant';
 import axios from "axios";
+import Mobile from './assets/images/mobile.jpg';
 const date = require('date-and-time');
 
 class App extends Component {
@@ -13,6 +15,10 @@ class App extends Component {
       weather: [{}],
       currTime: "",
       wish: ""
+    },
+    secondWeatherData: {
+      sys: {},
+      wind: {}
     }
   }
   
@@ -60,6 +66,20 @@ class App extends Component {
     } 
     return wish;
   }
+  getSecondWeatherData = (event) => {
+    event.preventDefault();
+    const { name } = event.target;
+    let postName = name.value;
+    axios
+    .post(`${URL}${postName}&appid=${API_KEY}&units=metric`)
+    .then((response) =>
+      this.setState({
+        secondWeatherData: response.data
+    })
+    ).catch((error) => {
+      console.log(error)
+    });
+  }
   render() {
     const { name, main, weather } = this.state.weatherData;
     let temperature = main.temp;
@@ -68,6 +88,8 @@ class App extends Component {
     let now = new Date();
     let currentDate =  date.format(now, 'MM/DD/YYYY');
     let greet = this.getWish()
+    const { name: newName, sys } = this.state.secondWeatherData;
+    let country = sys.country; 
     return (
       <div className="background">
         <div className="header">
@@ -87,13 +109,25 @@ class App extends Component {
         <div className="bottom">        
           <div className="bottom__leftContainer">
               <h1 className="bottom__heading">Weather Point</h1>
-              <form className="bottom__form">
-                <input className="bottom__form-input" type="text" placeholder="Search for a city" autoFocus /><br></br>
+              <form className="bottom__form" onSubmit={this.getSecondWeatherData}>
+                <input className="bottom__form-input" type="text" name="name" placeholder="Search for a city" autoFocus /><br></br>
                 <button className="bottom__form-btn" type="submit">SUBMIT</button>
                 <span className="bottom__form-msg"></span>
               </form>
           </div>
-          <div id="weather_div"></div>
+          <div className="weather">
+            <div className="bottom__midContainer">
+                <h2 className="bottom__cityCon">
+                    <span className="bottom__city">{newName}</span>
+                    <sup className="bottom__con">{country}</sup>
+                </h2>
+                <div className="bottom__temp">Math.round(main.temp)<sup>°C</sup></div>
+                <figure className="bottom__rightContainer">
+                  <figcaption className="bottom__caption">weather</figcaption>
+                  <img className="bottom__img" src={Mobile} alt="mobile" />
+                </figure> 
+            </div>
+          </div>
         </div>
     </div>
     )

@@ -1,5 +1,9 @@
 .bottom {
     color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     &__leftContainer {
         display: flex;
         flex-direction: column;
@@ -11,5 +15,9 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+    }
+    &__img {
+        height: 50px;
+        width: 50px;
     }
 }
