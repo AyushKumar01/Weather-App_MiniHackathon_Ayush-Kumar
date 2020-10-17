@@ -3,8 +3,9 @@ import "./styles/app.css";
 import { SEARCH_URL } from './constant';
 import { URL } from './constant';
 import { API_KEY } from './constant';
+import { ICON_URL } from './constant';
 import axios from "axios";
-import Mobile from './assets/images/mobile.jpg';
+// import Mobile from './assets/images/mobile.jpg';
 const date = require('date-and-time');
 
 class App extends Component {
@@ -18,6 +19,8 @@ class App extends Component {
     },
     secondWeatherData: {
       sys: {},
+      weather: [{}],
+      main: {},
       wind: {}
     }
   }
@@ -88,13 +91,18 @@ class App extends Component {
     let now = new Date();
     let currentDate =  date.format(now, 'MM/DD/YYYY');
     let greet = this.getWish()
-    const { name: newName, sys } = this.state.secondWeatherData;
+    // =========2nd==============
+    const { name: newName, sys, main: newMain, weather: newWeather } = this.state.secondWeatherData;
     let country = sys.country; 
+    let newCelsius = newMain.temp;
+    const { icon, description }  = newWeather[0];
+    const image = icon && `${ICON_URL}${icon}.svg`;
     return (
       <div className="background">
         <div className="header">
             <div className="header__left">
-                <div className="header__left-description">{status}</div>
+                <div className="
+                header__left-description">{status}</div>
                 <h1 className="header__left-temp" id="temp">{celsius}&deg;</h1>
                 <div className="header__left-location" id="location">{name}</div>
             </div>
@@ -118,13 +126,13 @@ class App extends Component {
           <div className="weather">
             <div className="bottom__midContainer">
                 <h2 className="bottom__cityCon">
-                    <span className="bottom__city">{newName}</span>
-                    <sup className="bottom__con">{country}</sup>
+                    <span className="bottom__con">{country}</span>
+                    <sup className="bottom__city">{newName}</sup>
                 </h2>
-                <div className="bottom__temp">Math.round(main.temp)<sup>°C</sup></div>
+                {newCelsius && <div className="bottom__temp">{newCelsius}<sup>°C</sup></div>}
                 <figure className="bottom__rightContainer">
-                  <figcaption className="bottom__caption">weather</figcaption>
-                  <img className="bottom__img" src={Mobile} alt="mobile" />
+                  <figcaption className="bottom__caption">{description}</figcaption>
+                  {image && <img className="bottom__img" src={image} />}
                 </figure> 
             </div>
           </div>
