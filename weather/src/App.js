@@ -128,13 +128,20 @@ class App extends Component {
                   <h1 className="header__left-temp">{celsius}&deg;</h1>
                   <div className="header__left-description">{status}</div>
               </div>
+              <div>
+                <div>
+                  <div>feels like</div>
+                  <div>temp_min</div>
+                  <div>temp_max</div>
+                </div>
+              </div>
               <div className="header__box-wish">
                   <p id="wishPara">{greet}</p>
               </div>
-              {/* <div className="header__box"> */}
-                  <p className="header__box-time">{this.state.currTime}</p>
-                  <p className="header__box-date">{currentDate}</p>
-              {/* </div> */}
+          </div>
+          <div className="timer__box">
+                  <p className="timer__box-time">{this.state.currTime}</p>
+                  <p className="timer__box-date">{currentDate}</p>
           </div>
           <div className="bottom">        
             <div className="bottom__leftContainer">

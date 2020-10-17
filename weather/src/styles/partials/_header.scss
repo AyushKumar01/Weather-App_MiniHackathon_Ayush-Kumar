@@ -25,18 +25,31 @@
     //     justify-content: center;
     //     align-items: center;
     // }
-    &__box-time {
-       font-size: 20px;
-       font-weight: bold;
-    }
-    &__box-date {
-       font-size: 30px;
-       margin: 0;
-    }
+    // &__box-time {
+    //    font-size: 20px;
+    //    font-weight: bold;
+    // }
+    // &__box-date {
+    //    font-size: 30px;
+    //    margin: 0;
+    // }
     &__box-wish {
         font-size: 50px;
         margin-bottom: 5rem;
     }
-  
+}
 
+.timer {
+    &__box {
+        @include flexDirectionColum;
+        color: #fff;
+    }
+    &__box-time {
+        font-size: 20px;
+        font-weight: bold;
+     }
+     &__box-date {
+        font-size: 30px;
+        margin: 0;
+     }
 }
