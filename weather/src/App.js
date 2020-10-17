@@ -125,7 +125,7 @@ class App extends Component {
           <div className="header">
               <div className="header__left">
                   <div className="header__left-location">{name}</div>
-                  <h1 className="header__left-temp" id="temp">{celsius}&deg;</h1>
+                  <h1 className="header__left-temp">{celsius}&deg;</h1>
                   <div className="header__left-description">{status}</div>
               </div>
               <div className="header__box-wish">

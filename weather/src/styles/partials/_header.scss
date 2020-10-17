@@ -1,16 +1,10 @@
 .header {
     // &__wrapper {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        @include flexDirectionColum;
         color: #fff;
     // }
     &__left {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center
+        @include flexDirectionColum;
     }
     &__left-location {
         font-size: 1.5rem;
@@ -19,7 +13,7 @@
         font-size: 24px;
     }
     &__left-temp {
-         color: #fff;
+         color: yellow;
     }
     // &__box {
     //     height: 130px;

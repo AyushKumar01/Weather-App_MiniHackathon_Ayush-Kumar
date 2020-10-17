@@ -1,9 +1,6 @@
 .bottom {
     color: #fff;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    @include flexDirectionColum;
     &__leftContainer {
         display: flex;
         flex-direction: column;
@@ -14,10 +11,7 @@
         font-size: 29px;
     }
     &__form {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        @include flexDirectionColum;
     }
     &__form-input {
         height: 1.5rem;
@@ -33,6 +27,9 @@
         font-weight: 600;
         outline: none;
     }
+    &__temp {
+        color: yellow;
+    }
 }
 .weather{
     &__img {
@@ -40,5 +37,8 @@
         width: 50px;
         border-radius: 50%;
         background: white;
+    }
+    &__temp {
+        color: yellow;
     }
 }

@@ -62,7 +62,7 @@ ul {
 }
 
 .header__left-temp {
-  color: #fff;
+  color: yellow;
 }
 
 .header__box-time {
@@ -149,11 +149,19 @@ ul {
   outline: none;
 }
 
+.bottom__temp {
+  color: yellow;
+}
+
 .weather__img {
   height: 50px;
   width: 50px;
   border-radius: 50%;
   background: white;
+}
+
+.weather__temp {
+  color: yellow;
 }
 
 .background {

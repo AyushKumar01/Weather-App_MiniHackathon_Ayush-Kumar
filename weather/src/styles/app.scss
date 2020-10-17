@@ -1,18 +1,16 @@
 @import "./partials/reset";
+@import "./partials/mixin";
 @import "./partials/header";
 @import "./partials/bottom";
 
 .background {
     background-image:
     linear-gradient(to bottom, rgba(0, 0, 0, .1), rgba(0, 0, 0, .2))
-    , url(../assets/images/mobile1.jpg);
+    ,url(../assets/images/mobile1.jpg);
     filter: contrast(120%);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: bottom center;
     height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    @include flexDirectionColum;
 }
