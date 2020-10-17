@@ -11,4 +11,8 @@
     background-repeat: no-repeat;
     background-position: bottom center;
     height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }

@@ -5,7 +5,6 @@ import { URL } from './constant';
 import { API_KEY } from './constant';
 import { ICON_URL } from './constant';
 import axios from "axios";
-// import Mobile from './assets/images/mobile.jpg';
 const date = require('date-and-time');
 
 class App extends Component {
@@ -82,12 +81,23 @@ class App extends Component {
     ).catch((error) => {
       console.log(error)
     });
+    event.target.name.value = " ";
+  }
+  uppercase = (str) =>{
+    if(str){
+      let array1 = str.split(' ');
+      let newArray1 = [];
+      for(let i = 0; i < array1.length; i++){
+        newArray1.push(array1[i].charAt(0).toUpperCase()+array1[i].slice(1));
+      }
+      return newArray1.join(' ');
+    }
   }
   render() {
     const { name, main, weather } = this.state.weatherData;
     let temperature = main.temp;
     let celsius = Math.round(parseFloat(temperature)-273.15);
-    let status = weather[0].description;
+    let status = this.uppercase(weather[0].description);
     let now = new Date();
     let currentDate =  date.format(now, 'MM/DD/YYYY');
     let greet = this.getWish()
@@ -95,45 +105,48 @@ class App extends Component {
     const { name: newName, sys, main: newMain, weather: newWeather } = this.state.secondWeatherData;
     let country = sys.country; 
     let newCelsius = newMain.temp;
-    const { icon, description }  = newWeather[0];
+    const { icon }  = newWeather[0];
     const image = icon && `${ICON_URL}${icon}.svg`;
+    let secondDescription = this.uppercase(newWeather[0].description);
     return (
       <div className="background">
-        <div className="header">
-            <div className="header__left">
-                <div className="
-                header__left-description">{status}</div>
-                <h1 className="header__left-temp" id="temp">{celsius}&deg;</h1>
-                <div className="header__left-location" id="location">{name}</div>
-            </div>
-            <div className="header__box-wish">
-                <p id="wishPara">{greet}</p>
-            </div>
-            {/* <div className="header__box"> */}
-                <p className="header__box-time">{this.state.currTime}</p>
-                <p className="header__box-date">{currentDate}</p>
-            {/* </div> */}
-        </div>
-        <div className="bottom">        
-          <div className="bottom__leftContainer">
-              <h1 className="bottom__heading">Weather Point</h1>
-              <form className="bottom__form" onSubmit={this.getSecondWeatherData}>
-                <input className="bottom__form-input" type="text" name="name" placeholder="Search for a city" autoFocus /><br></br>
-                <button className="bottom__form-btn" type="submit">SUBMIT</button>
-                <span className="bottom__form-msg"></span>
-              </form>
+        <div className="wrapper">
+          <div className="header">
+              <div className="header__left">
+                  <div className="
+                  header__left-description">{status}</div>
+                  <h1 className="header__left-temp" id="temp">{celsius}&deg;</h1>
+                  <div className="header__left-location" id="location">{name}</div>
+              </div>
+              <div className="header__box-wish">
+                  <p id="wishPara">{greet}</p>
+              </div>
+              {/* <div className="header__box"> */}
+                  <p className="header__box-time">{this.state.currTime}</p>
+                  <p className="header__box-date">{currentDate}</p>
+              {/* </div> */}
           </div>
-          <div className="weather">
-            <div className="bottom__midContainer">
-                <h2 className="bottom__cityCon">
-                    <span className="bottom__con">{country}</span>
-                    <sup className="bottom__city">{newName}</sup>
-                </h2>
-                {newCelsius && <div className="bottom__temp">{newCelsius}<sup>°C</sup></div>}
-                <figure className="bottom__rightContainer">
-                  <figcaption className="bottom__caption">{description}</figcaption>
-                  {image && <img className="bottom__img" src={image} />}
-                </figure> 
+          <div className="bottom">        
+            <div className="bottom__leftContainer">
+                <h1 className="bottom__heading">Weather Point</h1>
+                <form className="bottom__form" onSubmit={this.getSecondWeatherData}>
+                  <input className="bottom__form-input" type="text" name="name" placeholder="Search for a city" autoFocus /><br></br>
+                  <button className="bottom__form-btn" type="submit">SUBMIT</button>
+                  <span className="bottom__form-msg"></span>
+                </form>
+            </div>
+            <div className="weather">
+              <div className="weather__midContainer">
+                  <h2 className="weather__cityCon">
+                      <span className="weather__con">{country}</span>
+                      <sup className="weather__city">{newName}</sup>
+                  </h2>
+                  {newCelsius && <div className="weather__temp">{newCelsius}<sup>°C</sup></div>}
+                  <figure className="weather__rightContainer">
+                    <figcaption className="weather__caption">{secondDescription}</figcaption>
+                    {image && <img className="weather__img" src={image} alt="Image"/>}
+                  </figure> 
+              </div>
             </div>
           </div>
         </div>

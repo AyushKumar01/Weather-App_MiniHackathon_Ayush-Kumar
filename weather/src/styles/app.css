@@ -145,7 +145,7 @@ ul {
           align-items: center;
 }
 
-.bottom__img {
+.weather__img {
   height: 50px;
   width: 50px;
   border-radius: 50%;
@@ -161,5 +161,18 @@ ul {
   background-repeat: no-repeat;
   background-position: bottom center;
   height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 /*# sourceMappingURL=app.css.map */
