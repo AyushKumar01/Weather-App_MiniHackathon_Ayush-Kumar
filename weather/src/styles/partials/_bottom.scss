@@ -32,13 +32,25 @@
     }
 }
 .weather{
+    margin-top: 20px;
+    &__midContainer{
+        @include flexDirectionColum;
+    }
     &__img {
         height: 50px;
         width: 50px;
         border-radius: 50%;
         background: white;
+        margin-top: 10px;
     }
     &__temp {
         color: yellow;
+        margin-bottom: 10px;
+    }
+    &__cityCon {
+        @include flexDirectionColum;
+    }
+    &__rightContainer {
+        @include flexDirectionColum;
     }
 }

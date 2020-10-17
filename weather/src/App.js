@@ -117,7 +117,7 @@ class App extends Component {
     let country = sys.country; 
     let newCelsius = newMain.temp;
     const { icon }  = newWeather[0];
-    const image = icon && `${ICON_URL}${icon}.svg`;
+    const image1 = icon && `${ICON_URL}${icon}.svg`;
     let secondDescription = this.uppercase(newWeather[0].description);
     return (
       <div className="background">
@@ -149,12 +149,12 @@ class App extends Component {
               <div className="weather__midContainer">
                   <h2 className="weather__cityCon">
                       <span className="weather__con">{country}</span>
-                      <sup className="weather__city">{newName}</sup>
+                      <span className="weather__city">{newName}</span>
                   </h2>
                   {newCelsius && <div className="weather__temp">{newCelsius}<sup>°C</sup></div>}
                   <figure className="weather__rightContainer">
                     <figcaption className="weather__caption">{secondDescription}</figcaption>
-                    {image && <img className="weather__img" src={image} alt="Image"/>}
+                    {image1 && <img className="weather__img" src={image1} alt="Image1"/>}
                   </figure> 
               </div>
             </div>
