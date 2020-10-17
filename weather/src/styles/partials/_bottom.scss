@@ -10,11 +10,28 @@
         justify-content: center;
         align-items: center;
     }
+    &__heading {
+        font-size: 29px;
+    }
     &__form {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+    }
+    &__form-input {
+        height: 1.5rem;
+        text-indent: 5px;
+        border-radius: 5px;
+        border: transparent;
+    }
+    &__form-btn{
+        height: 1.25rem;
+        width: 3rem;
+        border: transparent;
+        border-radius: 4px;
+        font-weight: 600;
+        outline: none;
     }
 }
 .weather{

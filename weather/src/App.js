@@ -21,7 +21,8 @@ class App extends Component {
       weather: [{}],
       main: {},
       wind: {}
-    }
+    },
+    errMsg: ""
   }
   
   componentDidMount(){
@@ -74,12 +75,22 @@ class App extends Component {
     let postName = name.value;
     axios
     .post(`${URL}${postName}&appid=${API_KEY}&units=metric`)
-    .then((response) =>
+    .then((response) => {
+      console.log(response);
       this.setState({
         secondWeatherData: response.data
-    })
+      })
+    }
     ).catch((error) => {
-      console.log(error)
+      if(error.response){
+        this.setState({
+          errMsg: error.response.data.message
+        })
+      }
+      // this.setState({
+      //   errMsg: error.response.data.message
+      // })
+      // console.log(error)
     });
     event.target.name.value = " ";
   }
@@ -113,10 +124,9 @@ class App extends Component {
         <div className="wrapper">
           <div className="header">
               <div className="header__left">
-                  <div className="
-                  header__left-description">{status}</div>
+                  <div className="header__left-location">{name}</div>
                   <h1 className="header__left-temp" id="temp">{celsius}&deg;</h1>
-                  <div className="header__left-location" id="location">{name}</div>
+                  <div className="header__left-description">{status}</div>
               </div>
               <div className="header__box-wish">
                   <p id="wishPara">{greet}</p>
@@ -131,8 +141,8 @@ class App extends Component {
                 <h1 className="bottom__heading">Weather Point</h1>
                 <form className="bottom__form" onSubmit={this.getSecondWeatherData}>
                   <input className="bottom__form-input" type="text" name="name" placeholder="Search for a city" autoFocus /><br></br>
-                  <button className="bottom__form-btn" type="submit">SUBMIT</button>
-                  <span className="bottom__form-msg"></span>
+                  <button className="bottom__form-btn" type="submit">CLICK</button>
+                  {this.state.errMsg && <span className="bottom__form-msg">{this.state.errMsg}</span>}
                 </form>
             </div>
             <div className="weather">
