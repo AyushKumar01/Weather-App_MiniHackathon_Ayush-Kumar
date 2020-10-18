@@ -159,11 +159,13 @@ class App extends Component {
             {/* ============ */}
             <div className="weather">
               <div className="weather__midContainer">
+                <div className="weather__midContainer-left">
                   <h2 className="weather__cityCon">
                       <span className="weather__con">{country}</span>
                       <span className="weather__city">{newName}</span>
                   </h2>
                   {newCelsius && <div className="weather__temp">{newCelsius}<sup>°C</sup></div>}
+                </div>
                   <figure className="weather__rightContainer">
                     <figcaption className="weather__caption">{secondDescription}</figcaption>
                     {image1 && <img className="weather__img" src={image1} alt="Image1"/>}

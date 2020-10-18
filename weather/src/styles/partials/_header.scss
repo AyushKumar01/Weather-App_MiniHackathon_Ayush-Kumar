@@ -5,7 +5,6 @@
         @include flexDirectionColum;
         text-align: center;
         padding: 10px;
-        background-color: rgb(204, 204, 32);
         display: unset;
         height: 100px;
         width: 170px;
@@ -17,8 +16,9 @@
     &__left-description {
         font-size: 1.5rem;
     }
-    // &__left-temp {
-    // }
+    &__left-temp {
+        color: yellow;
+    }
     &__right{
         display: none;
     }
@@ -42,6 +42,9 @@
         &__right-min{
             margin: 0.75rem 0;
         }
+        &__left {
+            background-color: rgb(204, 204, 32);
+        }
     }
 }
 
@@ -50,6 +53,9 @@
     font-size: 50px;
     margin-bottom: 5rem;
     text-align: center;
+    @include mobile {
+        margin: 1.5rem 0 4rem;
+    }
 }
 
 .timer {

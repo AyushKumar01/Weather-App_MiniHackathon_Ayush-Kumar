@@ -45,12 +45,34 @@
     }
     &__temp {
         color: yellow;
-        margin-bottom: 10px;
+        // margin-bottom: 10px;
     }
     &__cityCon {
         @include flexDirectionColum;
     }
     &__rightContainer {
         @include flexDirectionColum;
+    }
+    // ==============================
+    @include mobile {
+        &__midContainer{
+            flex-direction: row;
+            justify-content: space-between;
+
+        }
+        &__midContainer-left{
+            text-align: center;
+            margin-right: 30vw;
+        }
+        &__cityCon {
+            flex-direction: column;
+        }
+        &__temp {
+            background-color: rgb(204, 204, 32);
+            color: #fff;
+            border-radius: 4px;
+            height: 27px;
+            font-weight: 600;
+        }
     }
 }

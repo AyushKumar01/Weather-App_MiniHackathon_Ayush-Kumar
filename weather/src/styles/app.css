@@ -53,7 +53,6 @@ ul {
           align-items: center;
   text-align: center;
   padding: 10px;
-  background-color: #cccc20;
   display: unset;
   height: 100px;
   width: 170px;
@@ -66,6 +65,10 @@ ul {
 
 .header__left-description {
   font-size: 1.5rem;
+}
+
+.header__left-temp {
+  color: yellow;
 }
 
 .header__right {
@@ -96,6 +99,9 @@ ul {
   .header__right-min {
     margin: 0.75rem 0;
   }
+  .header__left {
+    background-color: #cccc20;
+  }
 }
 
 .greeting {
@@ -103,6 +109,12 @@ ul {
   font-size: 50px;
   margin-bottom: 5rem;
   text-align: center;
+}
+
+@media screen and (min-width: 500px) {
+  .greeting {
+    margin: 1.5rem 0 4rem;
+  }
 }
 
 .timer {
@@ -235,7 +247,6 @@ ul {
 
 .weather__temp {
   color: yellow;
-  margin-bottom: 10px;
 }
 
 .weather__cityCon {
@@ -268,6 +279,35 @@ ul {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+@media screen and (min-width: 500px) {
+  .weather__midContainer {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .weather__midContainer-left {
+    text-align: center;
+    margin-right: 30vw;
+  }
+  .weather__cityCon {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .weather__temp {
+    background-color: #cccc20;
+    color: #fff;
+    border-radius: 4px;
+    height: 27px;
+    font-weight: 600;
+  }
 }
 
 .background {
