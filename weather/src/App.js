@@ -112,6 +112,8 @@ class App extends Component {
     const { name, main, weather } = this.state.weatherData;
     let temperature = main.temp;
     let feels = main.feels_like;
+    let temp_min = main.temp_min;
+    let temp_max = main.temp_max;
     // ===================
 
     let status = this.uppercase(weather[0].description);
@@ -135,9 +137,9 @@ class App extends Component {
                   <div className="header__left-description">{status}</div>
               </div>
               <div className="header__right">
-    <div className="header__right-feel">feels like - {this.converter(feels)}&deg;</div>
-                  <div className="header__right-min">temp_min</div>
-                  <div className="header__right-max">temp_max</div>
+              <div className="header__right-feel">feels like - {this.converter(feels)}&deg;</div>
+                  <div className="header__right-min">temp_min - {this.converter(temp_min)}&deg;</div>
+                  <div className="header__right-max">temp_max - {this.converter(temp_max)}&deg;</div>
               </div>
           </div>
           <div className="greeting">{greet}</div>
@@ -154,6 +156,7 @@ class App extends Component {
                   {this.state.errMsg && <span className="bottom__form-msg">{this.state.errMsg}</span>}
                 </form>
             </div>
+            {/* ============ */}
             <div className="weather">
               <div className="weather__midContainer">
                   <h2 className="weather__cityCon">
@@ -167,6 +170,7 @@ class App extends Component {
                   </figure> 
               </div>
             </div>
+            {/* ================= */}
           </div>
         </div>
     </div>

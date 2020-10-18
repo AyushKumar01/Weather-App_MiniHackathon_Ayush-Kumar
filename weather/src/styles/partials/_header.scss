@@ -3,6 +3,13 @@
         color: #fff;
     &__left {
         @include flexDirectionColum;
+        text-align: center;
+        padding: 10px;
+        background-color: rgb(204, 204, 32);
+        display: unset;
+        height: 100px;
+        width: 170px;
+        border-radius: 10px;
     }
     &__left-location {
         font-size: 1.5rem;
@@ -10,9 +17,8 @@
     &__left-description {
         font-size: 1.5rem;
     }
-    &__left-temp {
-         color: yellow;
-    }
+    // &__left-temp {
+    // }
     &__right{
         display: none;
     }
@@ -24,7 +30,14 @@
         justify-content: space-between;
         font-size: 1.25rem;
         &__right{
+            margin-left: 2vw;
+            text-align: center;
+            padding: 10px;
+            background-color: rgb(204, 204, 32);
             display: unset;
+            height: 100px;
+            width: 170px;
+            border-radius: 10px;
         }
         &__right-min{
             margin: 0.75rem 0;
@@ -34,8 +47,9 @@
 
 .greeting {
     color: #fff;
-        font-size: 50px;
-        margin-bottom: 5rem;
+    font-size: 50px;
+    margin-bottom: 5rem;
+    text-align: center;
 }
 
 .timer {

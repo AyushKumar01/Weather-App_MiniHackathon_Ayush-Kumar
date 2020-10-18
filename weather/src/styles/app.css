@@ -51,6 +51,13 @@ ul {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  text-align: center;
+  padding: 10px;
+  background-color: #cccc20;
+  display: unset;
+  height: 100px;
+  width: 170px;
+  border-radius: 10px;
 }
 
 .header__left-location {
@@ -59,10 +66,6 @@ ul {
 
 .header__left-description {
   font-size: 1.5rem;
-}
-
-.header__left-temp {
-  color: yellow;
 }
 
 .header__right {
@@ -81,7 +84,14 @@ ul {
     font-size: 1.25rem;
   }
   .header__right {
+    margin-left: 2vw;
+    text-align: center;
+    padding: 10px;
+    background-color: #cccc20;
     display: unset;
+    height: 100px;
+    width: 170px;
+    border-radius: 10px;
   }
   .header__right-min {
     margin: 0.75rem 0;
@@ -92,6 +102,7 @@ ul {
   color: #fff;
   font-size: 50px;
   margin-bottom: 5rem;
+  text-align: center;
 }
 
 .timer {
