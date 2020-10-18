@@ -58,19 +58,43 @@ ul {
 }
 
 .header__left-description {
-  font-size: 24px;
+  font-size: 1.5rem;
 }
 
 .header__left-temp {
   color: yellow;
 }
 
-.header__box-wish {
+.header__right {
+  display: none;
+}
+
+@media screen and (min-width: 500px) {
+  .header {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    font-size: 1.25rem;
+  }
+  .header__right {
+    display: unset;
+  }
+  .header__right-min {
+    margin: 0.75rem 0;
+  }
+}
+
+.greeting {
+  color: #fff;
   font-size: 50px;
   margin-bottom: 5rem;
 }
 
-.timer__box {
+.timer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -87,12 +111,12 @@ ul {
   color: #fff;
 }
 
-.timer__box-time {
+.timer__time {
   font-size: 20px;
   font-weight: bold;
 }
 
-.timer__box-date {
+.timer__date {
   font-size: 30px;
   margin: 0;
 }

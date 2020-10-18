@@ -1,8 +1,6 @@
 .header {
-    // &__wrapper {
         @include flexDirectionColum;
         color: #fff;
-    // }
     &__left {
         @include flexDirectionColum;
     }
@@ -10,45 +8,44 @@
         font-size: 1.5rem;
     }
     &__left-description {
-        font-size: 24px;
+        font-size: 1.5rem;
     }
     &__left-temp {
          color: yellow;
     }
+    &__right{
+        display: none;
+    }
     // &__box {
-    //     height: 130px;
-    //     width: 130px;
-    //     border-radius: 50%;
-    //     border: 4px solid white;
-    //     display: flex;
-    //     flex-direction: column;
-    //     justify-content: center;
-    //     align-items: center;
     // }
-    // &__box-time {
-    //    font-size: 20px;
-    //    font-weight: bold;
-    // }
-    // &__box-date {
-    //    font-size: 30px;
-    //    margin: 0;
-    // }
-    &__box-wish {
-        font-size: 50px;
-        margin-bottom: 5rem;
+    // ================mobile==================
+    @include mobile{
+        flex-direction: row;
+        justify-content: space-between;
+        font-size: 1.25rem;
+        &__right{
+            display: unset;
+        }
+        &__right-min{
+            margin: 0.75rem 0;
+        }
     }
 }
 
+.greeting {
+    color: #fff;
+        font-size: 50px;
+        margin-bottom: 5rem;
+}
+
 .timer {
-    &__box {
         @include flexDirectionColum;
         color: #fff;
-    }
-    &__box-time {
+    &__time {
         font-size: 20px;
         font-weight: bold;
      }
-     &__box-date {
+     &__date {
         font-size: 30px;
         margin: 0;
      }

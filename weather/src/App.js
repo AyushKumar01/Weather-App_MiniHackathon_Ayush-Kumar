@@ -104,10 +104,16 @@ class App extends Component {
       return newArray1.join(' ');
     }
   }
+  converter = (temp) => {
+     let newValue = Math.round(parseFloat(temp)-273.15);
+     return newValue;
+  }
   render() {
     const { name, main, weather } = this.state.weatherData;
     let temperature = main.temp;
-    let celsius = Math.round(parseFloat(temperature)-273.15);
+    let feels = main.feels_like;
+    // ===================
+
     let status = this.uppercase(weather[0].description);
     let now = new Date();
     let currentDate =  date.format(now, 'MM/DD/YYYY');
@@ -125,23 +131,19 @@ class App extends Component {
           <div className="header">
               <div className="header__left">
                   <div className="header__left-location">{name}</div>
-                  <h1 className="header__left-temp">{celsius}&deg;</h1>
+                  <h1 className="header__left-temp">{this.converter(temperature)}&deg;</h1>
                   <div className="header__left-description">{status}</div>
               </div>
-              <div>
-                <div>
-                  <div>feels like</div>
-                  <div>temp_min</div>
-                  <div>temp_max</div>
-                </div>
-              </div>
-              <div className="header__box-wish">
-                  <p id="wishPara">{greet}</p>
+              <div className="header__right">
+    <div className="header__right-feel">feels like - {this.converter(feels)}&deg;</div>
+                  <div className="header__right-min">temp_min</div>
+                  <div className="header__right-max">temp_max</div>
               </div>
           </div>
-          <div className="timer__box">
-                  <p className="timer__box-time">{this.state.currTime}</p>
-                  <p className="timer__box-date">{currentDate}</p>
+          <div className="greeting">{greet}</div>
+          <div className="timer">
+                  <p className="timer__time">{this.state.currTime}</p>
+                  <p className="timer__date">{currentDate}</p>
           </div>
           <div className="bottom">        
             <div className="bottom__leftContainer">
