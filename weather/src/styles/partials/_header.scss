@@ -45,6 +45,9 @@
         &__left {
             background-color: rgb(204, 204, 32);
         }
+        &__left-temp {
+            color: #fff;
+        }
     }
 }
 
@@ -68,5 +71,6 @@
      &__date {
         font-size: 30px;
         margin: 0;
+        font-weight: 600;
      }
 }
