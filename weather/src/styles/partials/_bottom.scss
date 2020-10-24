@@ -30,11 +30,49 @@
     &__temp {
         color: yellow;
     }
+    @include mobile {
+        &__heading {
+            font-size: 35px;
+            font-weight: 600;
+            margin-top: 20px;
+        }
+        &__form-input {
+            height: 2.5rem;
+            text-indent: 10px;
+            font-size: 1.25rem;
+            width: 40vw;
+        }
+        &__form-btn{
+            height: 2rem;
+            width: 4rem;
+            border-radius: 10px;
+            font-weight: 900;
+            font-size: 18px;
+        }
+    }
+    @include tablet {
+        &__leftContainer{
+            position: fixed;
+            top: 12%;
+            left: 29%;
+        }
+    }
+    @include laptop {
+        &__form-btn{
+            width: 7vw;
+        }
+    }
 }
 .weather{
     margin-top: 20px;
     &__midContainer{
         @include flexDirectionColum;
+    }
+    &__midContainer-left {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
     }
     &__img {
         height: 50px;
@@ -67,12 +105,162 @@
         &__cityCon {
             flex-direction: column;
         }
+        &__city {
+            font-size: 35px;
+        }
         &__temp {
-            background-color: rgb(204, 204, 32);
+            background-color: rgb(177, 177, 30);
             color: #fff;
             border-radius: 4px;
-            height: 27px;
+            height: 45px;
+            width: 8rem;
+            font-weight: 600;
+            font-size: 32px;
+        }
+        &__rightContainer {
+            flex-direction: column-reverse;
+        }
+        &__img {
+            height: 80px;
+            width: 80px;
+        }
+        &__caption {
+            margin-top: 5px;
+            font-size: 25px;
             font-weight: 600;
         }
+    }
+    @include tablet {
+        // display: none;
+        position: fixed;
+        bottom: 72px;
+        left: 40%;
+        &__midContainer{
+            flex-direction: column;
+            height: 30vw;
+        }
+        &__midContainer-left{
+            margin-right: 0;
+
+        }
+        &__temp {
+            background-color: darkblue;
+        }
+        // &__img {
+        //     height: ;
+        // }
+    }
+    @include laptop {
+        left: 44%;
+        bottom: 137px;
+        &__midContainer {
+            height: 20vw;
+        }
+        &__img {
+            height: 12vw;
+            width: 13vw;
+            border-radius: 5%;
+        }
+    }
+    @include desktop {
+        left: 43%;
+    }
+}
+
+// ========================================================================
+.weather-second {
+    display: none;
+    color: #fff;
+    &__left {
+        @include flexDirectionColum;
+        text-align: center;
+        padding: 10px;
+        display: unset;
+        height: 100px;
+        width: 170px;
+        border-radius: 10px;
+    }
+
+    &__left-location {
+        font-size: 1.5rem;
+    }
+    &__left-description {
+        font-size: 1.5rem;
+    }
+    &__left-temp {
+        color: yellow;
+    }
+    
+    // ================mobile==================
+    @include mobile{
+        // display: none;
+        flex-direction: row;
+        justify-content: space-between;
+        font-size: 1.25rem;
+        &__right{
+            margin-left: 10vw;
+            text-align: center;
+            padding: 10px;
+            background-color: rgb(204, 204, 32);
+            display: unset;
+            height: 100px;
+            width: 170px;
+            border-radius: 10px;
+        }
+        &__right-min{
+            margin: 0.75rem 0;
+        }
+        &__left {
+            background-color: rgb(204, 204, 32);
+        }
+        &__left-temp {
+            color: #fff;
+        }
+    }
+    @include tablet {
+        @include flexDirectionColum;
+        flex-direction: column;
+        position: fixed;
+        top: 28%;
+        right: 105px;
+        &__right{
+            margin-left: 0;
+            border-radius: 0;
+            margin-bottom: 5px;
+            background-color:rgb(75, 54, 197);
+        }
+        &__left{
+            border-radius: 0;
+            margin-bottom: 5px;
+            height: unset;
+            background-color: slateblue;
+        }
+        &__left-location{
+        font-size: 2rem;
+        font-weight: 600;
+        border-bottom: 1px solid white;
+        border-radius: 50px;
+        }
+        &__mid{
+            text-align: center;
+            padding: 10px;
+            background-color:rgb(93, 71, 214);
+            display: unset;
+            height: 100px;
+            width: 170px;
+            margin-bottom: 5px;
+        }
+        &__last{
+            text-align: center;
+            padding: 10px;
+            background-color: rgb(69, 50, 177);
+            display: unset;
+            height: 100px;
+            width: 170px;
+        }
+    }
+    @include desktop {
+        right: 155px;
+        top: 29.5%;
     }
 }
