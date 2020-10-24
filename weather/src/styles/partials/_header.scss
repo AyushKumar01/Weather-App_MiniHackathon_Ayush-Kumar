@@ -1,76 +1,162 @@
 .header {
-        @include flexDirectionColum;
-        color: #fff;
-    &__left {
-        @include flexDirectionColum;
+    @include flexDirectionColum;
+    color: #fff;
+&__left {
+    @include flexDirectionColum;
+    text-align: center;
+    padding: 10px;
+    display: unset;
+    height: 100px;
+    width: 170px;
+    border-radius: 10px;
+}
+&__left-location {
+    font-size: 1.5rem;
+}
+&__left-description {
+    font-size: 1.5rem;
+}
+&__left-temp {
+    color: yellow;
+}
+&__mid{
+    display: none;
+}
+&__right{
+    display: none;
+}
+&__last{
+    display: none;
+}
+// &__box {
+// }
+// ================mobile==================
+@include mobile{
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 1.25rem;
+    &__right{
+        margin-left: 10vw;
         text-align: center;
         padding: 10px;
+        background-color: rgb(204, 204, 32);
         display: unset;
         height: 100px;
         width: 170px;
         border-radius: 10px;
     }
-    &__left-location {
-        font-size: 1.5rem;
+    &__right-min{
+        margin: 0.75rem 0;
     }
-    &__left-description {
-        font-size: 1.5rem;
+    &__left {
+        background-color: rgb(204, 204, 32);
     }
     &__left-temp {
-        color: yellow;
-    }
-    &__right{
-        display: none;
-    }
-    // &__box {
-    // }
-    // ================mobile==================
-    @include mobile{
-        flex-direction: row;
-        justify-content: space-between;
-        font-size: 1.25rem;
-        &__right{
-            margin-left: 2vw;
-            text-align: center;
-            padding: 10px;
-            background-color: rgb(204, 204, 32);
-            display: unset;
-            height: 100px;
-            width: 170px;
-            border-radius: 10px;
-        }
-        &__right-min{
-            margin: 0.75rem 0;
-        }
-        &__left {
-            background-color: rgb(204, 204, 32);
-        }
-        &__left-temp {
-            color: #fff;
-        }
+        color: #fff;
     }
 }
+@include tablet {
+    flex-direction: column;
+    position: relative;
+    top: 10%;
+    &__right{
+        margin-left: 0;
+        border-radius: 0;
+        margin-bottom: 5px;
+        background-color:rgb(75, 54, 197);
+    }
+    &__left{
+        border-radius: 0;
+        margin-bottom: 5px;
+        height: unset;
+        background-color: slateblue;
+    }
+    &__left-location{
+       font-size: 2rem;
+       font-weight: 600;
+       border-bottom: 1px solid white;
+       border-radius: 50px;
+    }
+    &__mid{
+        text-align: center;
+        padding: 10px;
+        background-color:rgb(93, 71, 214);
+        display: unset;
+        height: 100px;
+        width: 170px;
+        margin-bottom: 5px;
+    }
+    &__last{
+        text-align: center;
+        padding: 10px;
+        background-color: rgb(69, 50, 177);
+        display: unset;
+        height: 100px;
+        width: 170px;
+    }
+}
+// @include laptop {
+//     left: 20%;
+// }
+@include desktop {
+    left: 10%;
+}
+}
+
+// .greet-time{
+//     @include tablet {
+//         display: flex;
+//         justify-content: space-between;
+//         align-items: center;
+//     }
+// }
 
 .greeting {
-    color: #fff;
-    font-size: 50px;
-    margin-bottom: 5rem;
-    text-align: center;
-    @include mobile {
-        margin: 1.5rem 0 4rem;
-    }
+color: #fff;
+font-size: 40px;
+margin-bottom: 5rem;
+text-align: center;
+@include mobile {
+    font-size: 3.75rem;
+    margin: 1.5rem 0 4rem;
+}
+@include tablet {
+    position: relative;
+    left: 15%;
+}
+@include desktop {
+    left: 45%;
+}
 }
 
 .timer {
-        @include flexDirectionColum;
-        color: #fff;
+    @include flexDirectionColum;
+    color: #fff;
+&__time {
+    font-size: 30px;
+    font-weight: bold;
+ }
+ &__date {
+    font-size: 30px;
+    margin: 0;
+    font-weight: 600;
+ }
+ @include mobile {
     &__time {
-        font-size: 20px;
+        font-size: 40px;
         font-weight: bold;
      }
-     &__date {
-        font-size: 30px;
-        margin: 0;
-        font-weight: 600;
-     }
 }
+@include tablet {
+    flex-direction: column-reverse;
+    margin-bottom: 20px;
+    position: absolute;
+    right: 10%;
+    top: 20px;
+}
+@include desktop {
+    right: 15%;
+}
+}
+// slateblue
+// darkslateblue
